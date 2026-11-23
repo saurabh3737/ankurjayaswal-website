@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* Dark mode is driven by a `dark` class on <html> (set before paint in layout.tsx). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f7f7f4;
+  --surface: #ffffff;
+  --surface-2: #f7f7f4;
+  --ink: #0b1f33;
+  --body: #3a4756;
+  --muted: #4a5868;
+  --line: #dde1e6;
+  --line-2: #c5ccd4;
+  --chip: #eef1f4;
+  --accent: #0e7c66;
+  --accent-soft: #e3f2ee;
+  --accent-soft-ink: #0a5c4c;
+  --band: #0b1f33;
+  --band-line: #0b1f33;
+  --inv: #0b1f33;
+  --inv-ink: #ffffff;
+  --pri: #0e7c66;
+  --pri-ink: #ffffff;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #08131f;
+  --surface: #0f1f30;
+  --surface-2: #132840;
+  --ink: #e8eef4;
+  --body: #c3ced9;
+  --muted: #a3b1bf;
+  --line: #1f3349;
+  --line-2: #2d4560;
+  --chip: #17304a;
+  --accent: #5fd3b5;
+  --accent-soft: #0f3b33;
+  --accent-soft-ink: #8fe5cf;
+  --band: #10263d;
+  --band-line: #1f3349;
+  --inv: #e8eef4;
+  --inv-ink: #08131f;
+  --pri: #5fd3b5;
+  --pri-ink: #08131f;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+  --color-chip: var(--chip);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-soft-ink: var(--accent-soft-ink);
+  --color-band: var(--band);
+  --color-band-line: var(--band-line);
+  --color-inv: var(--inv);
+  --color-inv-ink: var(--inv-ink);
+  --color-pri: var(--pri);
+  --color-pri-ink: var(--pri-ink);
+
+  /* Fixed colours used on the navy band in both themes */
+  --color-band-muted: #b8c4d0;
+  --color-band-accent: #5fd3b5;
+  --color-band-chip: #1c3c5a;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
